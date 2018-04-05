@@ -12,15 +12,27 @@ export class ProductComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
+    // debugger;
+    this.productService.getData();
     this.resetForm();
   }
 
   onSubmit(productForm: NgForm) {
-    console.log('Hello');
+    // debugger;
+    console.log(productForm);
+    // this.productService.insertProduct(productForm.value);
+    // this.resetForm(productForm);
+
+    if (productForm.value.$key == null) {
+      this.productService.insertProduct(productForm.value);
+    } else {
+      this.productService.updateProduct(productForm.value);
+    }
+    this.resetForm(productForm);
+    // this.tostr.success('Submitted Succcessfully', 'Employee Register');
   }
 
   resetForm(productForm?: NgForm) {
-    console.log('reset');
     if (productForm != null) {
       productForm.reset();
     }

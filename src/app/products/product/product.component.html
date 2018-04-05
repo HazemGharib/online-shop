@@ -1,28 +1,32 @@
-<form #productForm="ngForm" (ngSubmit)="onSubmit()">
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
   <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
   <div class="form-group">
     <label>Name</label>
-    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="productService.selectedProduct.Name" placeholder="Product Name" required>
+    <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="productService.selectedProduct.Name" placeholder="Product Name" required>
   </div>
   <div class="form-group">
     <label>Description</label>
-    <input class="form-control" name="description" #description="ngModel" [(ngModel)]="productService.selectedProduct.Description" placeholder="Description">
+    <input class="form-control" name="Description" #Description="ngModel" [(ngModel)]="productService.selectedProduct.Description" placeholder="Description" required>
   </div>
   <div class="form-group">
     <label>Count</label>
-    <input class="form-control" name="count" #count="ngModel" [(ngModel)]="productService.selectedProduct.Count" placeholder="Count">
+    <input class="form-control" name="Count" #Count="ngModel" [(ngModel)]="productService.selectedProduct.Count" placeholder="Count" required>
   </div>
   <div class="form-group">
     <label>Price</label>
     <div class="input-group">
-        <input class="form-control" name="price" #price="ngModel" [(ngModel)]="productService.selectedProduct.Price" placeholder="Price">
+        <input class="form-control" name="Price" #Price="ngModel" [(ngModel)]="productService.selectedProduct.Price" placeholder="Price" required>
         <div class="input-group-addon">
           <i class="fa fa-dollar"></i>
         </div>
     </div>
   </div>
   <div class="form-group">
-    <button class="btn btn-default" type="submit">
+      <label>Category</label>
+      <input class="form-control" name="Category" #Category="ngModel" [(ngModel)]="productService.selectedProduct.Category" placeholder="Category Id" required>
+    </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!productForm.valid">
       <i class="fa fa-floppy-o"></i>
       Submit</button>
     <button class="btn btn-default" type="button" (click)="resetForm(productForm)">
