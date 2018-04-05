@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-// import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-root',
@@ -32,9 +31,5 @@ export class AppComponent implements OnInit {
         this.products.push(y);
       });
     });
-  }
-
-  add() {
-    this.firebase.list('Products').snapshotChanges();
   }
 }
