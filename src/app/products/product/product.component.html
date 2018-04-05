@@ -1,18 +1,32 @@
-<form #productForm="ngForm">
+<form #productForm="ngForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
   <div class="form-group">
     <label>Name</label>
-    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="productService.Name" placeholder="Product Name">
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="productService.selectedProduct.Name" placeholder="Product Name" required>
   </div>
   <div class="form-group">
     <label>Description</label>
-    <input class="form-control" name="description" #description="ngModel" [(ngModel)]="productService.Description" placeholder="Description">
+    <input class="form-control" name="description" #description="ngModel" [(ngModel)]="productService.selectedProduct.Description" placeholder="Description">
   </div>
   <div class="form-group">
     <label>Count</label>
-    <input class="form-control" name="count" #count="ngModel" [(ngModel)]="productService.Count" placeholder="Count">
+    <input class="form-control" name="count" #count="ngModel" [(ngModel)]="productService.selectedProduct.Count" placeholder="Count">
   </div>
   <div class="form-group">
     <label>Price</label>
-    <input class="form-control" name="price" #price="ngModel" [(ngModel)]="productService.Price" placeholder="Price">
+    <div class="input-group">
+        <input class="form-control" name="price" #price="ngModel" [(ngModel)]="productService.selectedProduct.Price" placeholder="Price">
+        <div class="input-group-addon">
+          <i class="fa fa-dollar"></i>
+        </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit">
+      <i class="fa fa-floppy-o"></i>
+      Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(productForm)">
+        <i class="fa fa-repeat"></i>
+        Reset</button>
   </div>
 </form>
