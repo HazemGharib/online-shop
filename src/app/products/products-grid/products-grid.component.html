@@ -1,0 +1,17 @@
+<div style="text-align:start">
+    <h3>
+      Products
+    </h3>
+  </div>
+  <ul>
+    <li *ngFor="let prod of products">
+      <div style="border: 1px solid black; margin-top: 10px; padding: 5px; width: 500px; list-style-type: none;">
+          <h4>{{prod.Name}} : {{prod.Description}}</h4>
+          <h6>(Category {{prod.Category}})</h6>
+          <ul>
+            <li>{{prod.Price}} $</li>
+            <li>Only {{prod.Count}} remaining</li>
+          </ul>
+      </div>
+    </li>
+  </ul>

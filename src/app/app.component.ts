@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
@@ -10,7 +10,6 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 export class AppComponent implements OnInit {
   title = 'app';
   categories;
-  products;
 
   constructor(private firebase: AngularFireDatabase) {  }
 
@@ -21,14 +20,6 @@ export class AppComponent implements OnInit {
       cat.forEach(element => {
         const y = element.payload.toJSON();
         this.categories.push(y);
-      });
-    });
-
-    this.firebase.list('Products').snapshotChanges().subscribe(prod => {
-      this.products = [];
-      prod.forEach(element => {
-        const y = element.payload.toJSON();
-        this.products.push(y);
       });
     });
   }
