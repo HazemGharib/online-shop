@@ -2,18 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-// import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyCJm9sdA5uN6n9M-PY0TKQKZKlB8OZET0o',
-  authDomain: 'online-shop-e37c4.firebaseapp.com',
-  databaseURL: 'https://online-shop-e37c4.firebaseio.com',
-  projectId: 'online-shop-e37c4',
-  storageBucket: 'online-shop-e37c4.appspot.com',
-  messagingSenderId: '745334263316'
-};
+
 
 @NgModule({
   declarations: [
@@ -21,7 +14,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     // AngularFireAuthModule,
   ],

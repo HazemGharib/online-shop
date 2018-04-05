@@ -13,22 +13,10 @@ export class AppComponent implements OnInit {
   categories;
   products;
 
-  constructor(private firebase: AngularFireDatabase) {
-    // this.categories = this.firebase.list('Categories').snapshotChanges().subscribe(cat => {
-    //   this.categories = [];
-    //   cat.forEach(element => {
-    //     const y = element.payload.toJSON();
-    //     this.categories.push(y);
-    //   });
-    // });
-    // this.categories = this.firebase.list('Categories');
-  }
+  constructor(private firebase: AngularFireDatabase) {  }
 
   ngOnInit() {
-    // this.firebase.list('Categories').snapshotChanges().subscribe((cats) => {
-    //   console.log(cats);
-    //   this.categories = cats;
-    // });
+
     this.firebase.list('Categories').snapshotChanges().subscribe(cat => {
       this.categories = [];
       cat.forEach(element => {
@@ -44,5 +32,9 @@ export class AppComponent implements OnInit {
         this.products.push(y);
       });
     });
+  }
+
+  add() {
+    this.firebase.list('Products').snapshotChanges();
   }
 }
