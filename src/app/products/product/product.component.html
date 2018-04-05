@@ -1,3 +1,18 @@
-<p>
-  product works!
-</p>
+<form #productForm="ngForm">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="productService.Name" placeholder="Product Name">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" name="description" #description="ngModel" [(ngModel)]="productService.Description" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label>Count</label>
+    <input class="form-control" name="count" #name="ngModel" [(ngModel)]="productService.Count" placeholder="Count">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input class="form-control" name="price" #name="ngModel" [(ngModel)]="productService.Price" placeholder="Price">
+  </div>
+</form>
