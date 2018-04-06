@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shared/product.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -9,19 +10,14 @@ import { NgForm } from '@angular/forms';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private tostr: ToastrService) { }
 
   ngOnInit() {
-    // debugger;
     this.productService.getData();
-    this.resetForm();
+    this.clearSelectedProduct();
   }
 
   onSubmit(productForm: NgForm) {
-    // debugger;
-    console.log(productForm);
-    // this.productService.insertProduct(productForm.value);
-    // this.resetForm(productForm);
 
     if (productForm.value.$key == null) {
       this.productService.insertProduct(productForm.value);
@@ -29,7 +25,7 @@ export class ProductComponent implements OnInit {
       this.productService.updateProduct(productForm.value);
     }
     this.resetForm(productForm);
-    // this.tostr.success('Submitted Succcessfully', 'Employee Register');
+    this.tostr.success('Submitted Succcessfully', 'Add Product');
   }
 
   resetForm(productForm?: NgForm) {
@@ -37,6 +33,13 @@ export class ProductComponent implements OnInit {
       productForm.reset();
     }
 
+    // Fixing NgForm.reset() UI issue
+    setTimeout(() => {
+      this.clearSelectedProduct();
+    }, 1);
+  }
+
+  clearSelectedProduct() {
     this.productService.selectedProduct = {
       $key: null,
       Name: '',
