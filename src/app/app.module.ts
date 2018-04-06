@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserAnimationsModule,
+    CommonModule,
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
