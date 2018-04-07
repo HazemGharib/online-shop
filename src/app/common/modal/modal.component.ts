@@ -6,27 +6,6 @@ import { ModalService } from './modal.service';
   templateUrl: './modal.component.html',
   styleUrls: ['../../_modal.scss']
 })
-
-// @Component({
-//   selector: 'app-modal',
-//   styleUrls: ['../../_modal.scss'],
-//   template: `
-//   	<div class="modal-container" *ngIf="isOpen">
-//   	  <div class="modal-overlay" (click)="close(true)"></div>
-//   	    <div class="app-modal">
-//   		<div class="title">
-// 		  <h3 *ngIf="modalTitle" [innerHTML]="modalTitle"></h3>
-// 		  <button *ngIf="!blocking && closebtn"
-// 	      	class="btn-close" (click)="close()">X</button>
-// 	    </div>
-// 	    <div class="body">
-// 	      <ng-content></ng-content>
-// 	    </div>
-// 	  </div>
-// 	</div>
-//   `
-// })
-
 export class ModalComponent implements OnInit {
 
   isOpen = false;
