@@ -3,7 +3,7 @@
       <div class="app-modal">
     <div class="title">
     <h3 *ngIf="modalTitle" [innerHTML]="modalTitle"></h3>
-    <button class="btn-close" (click)="close()">X</button>
+    <button *ngIf="blocking == 'false' && closebtn == 'true'" class="btn-close" (click)="close()">X</button>
     </div>
     <div class="body">
       <ng-content></ng-content>

@@ -41,7 +41,7 @@ export class ModalComponent implements OnInit {
   */
   keyup(event: KeyboardEvent): void {
     if (event.keyCode === 27) {
-      this.modalService.close(this.modalId, true);
+      this.modalService.close(this.modalId, false);
     }
   }
 

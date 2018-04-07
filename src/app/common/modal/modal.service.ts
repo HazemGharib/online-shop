@@ -23,7 +23,7 @@ export class ModalService {
     const modal = this.findModal(modalId);
 
     if (modal) {
-      if (checkBlocking && modal.blocking) {
+      if (checkBlocking && modal.blocking === true) {
         return;
       }
       setTimeout(() => {
