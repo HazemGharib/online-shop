@@ -1,3 +1,4 @@
+import { ModalService } from './../../common/modal/modal.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shared/product.service';
 import { NgForm } from '@angular/forms';
@@ -10,7 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private productService: ProductService, private tostr: ToastrService) { }
+  constructor(
+    private productService: ProductService,
+    private tostr: ToastrService,
+    private modalService: ModalService) { }
 
   ngOnInit() {
     this.productService.getData();
@@ -48,5 +52,9 @@ export class ProductComponent implements OnInit {
       Price: 0,
       Category: ''
     };
+  }
+
+  showProductModal() {
+    this.modalService.open('errorModal');
   }
 }

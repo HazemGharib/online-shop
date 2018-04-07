@@ -30,7 +30,14 @@
       <i class="fa fa-floppy-o"></i>
       Submit</button>
     <button class="btn btn-default" type="button" (click)="resetForm(productForm)">
-        <i class="fa fa-repeat"></i>
-        Reset</button>
+        <i class="fa fa-repeat"></i>Reset
+    </button>
+    <button class="btn btn-default" type="button" (click)="showProductModal()">
+      Click Me
+    </button>
   </div>
 </form>
+
+<app-modal modalId="errorModal" modalTitle="Error!" blocking="false" closebtn="true">
+  <p>An Error occured, please try this action again.</p>
+</app-modal>

@@ -1,0 +1,48 @@
+.modal-container {
+    .modal-overlay {
+      background: rgba(darkgray, 0.65);
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 1100;
+    }
+    .app-modal {
+      background: white;
+      border-radius: 10px;
+      left: calc(50% - 250px);
+      padding: 0;
+      max-height: calc(100% - 100px);
+      overflow-y: auto;
+      position: fixed;
+      top: 50px;
+      width: 500px;
+      z-index: 1101;
+      box-shadow: 5px 5px 20px 5px black;
+      padding: 1rem;
+      .title {
+        height: 30px;
+        h3 {
+          display: inline-block;
+          margin: 1rem !important; //to overwrite bootstrap style for h3
+        }
+        .btn-close {
+          background: white;
+          border: 0;
+          color: black;
+          font-weight: bolder;
+          border-radius: 50%;
+          float: right;
+          height: 30px;
+          width: 30px;
+          border: 2px solid black;
+          padding: 0px;
+          margin: 0px;
+        }
+      }
+      .body{
+        padding: 1rem;        
+      }
+    }
+  }

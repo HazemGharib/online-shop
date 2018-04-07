@@ -1,0 +1,12 @@
+<div class="modal-container" *ngIf="isOpen">
+    <div class="modal-overlay" (click)="close(true)"></div>
+      <div class="app-modal">
+    <div class="title">
+    <h3 *ngIf="modalTitle" [innerHTML]="modalTitle"></h3>
+    <button class="btn-close" (click)="close()">X</button>
+    </div>
+    <div class="body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
