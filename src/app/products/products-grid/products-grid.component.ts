@@ -25,9 +25,9 @@ export class ProductsGridComponent implements OnInit {
     });
   }
 
-  truncate(string) {
-    if (string.length > 16) {
-      return string.substring(0, 14) + '...';
+  truncate(string, length) {
+    if (string.length > length) {
+      return string.substring(0, length - 2) + '...';
     } else {
       return string;
     }
