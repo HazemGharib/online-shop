@@ -3,7 +3,6 @@
 </button>
 
 <app-modal modalId="errorModal" modalTitle="Add Product" blocking=false closebtn=true>
-  <!-- <p>An Error occured, please try this action again.</p> -->
   <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
     <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
     <div class="row justify-content-between">
