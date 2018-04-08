@@ -2,28 +2,21 @@
   Add Product
 </button>
 
-<app-modal modalId="errorModal" modalTitle="Add Product" blocking=false closebtn=true>
+<app-modal modalId="newProductModal" modalTitle="Add Product" blocking=false closebtn=true>
   <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
     <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
-    <div class="row justify-content-between">
+    <div class="row">
       <div class="col-lg-5 col-md-5 col-sm-5 form-group">
         <label>Name</label>
         <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="productService.selectedProduct.Name" placeholder="Product Name"
           required>
       </div>
-      <div class="col-lg-5 col-md-5 col-sm-5 form-group">
-        <label>Description</label>
-        <input class="form-control" name="Description" #Description="ngModel" [(ngModel)]="productService.selectedProduct.Description"
-          placeholder="Description" required>
-      </div>
-    </div>
-    <div class="row justify-content-between">
-      <div class="col-lg-5 col-md-5 col-sm-5 form-group">
+      <div class="col-lg-3 col-md-3 col-sm-3 form-group">
         <label>Count</label>
         <input class="form-control" name="Count" #Count="ngModel" [(ngModel)]="productService.selectedProduct.Count" placeholder="Count"
           required>
       </div>
-      <div class="col-lg-5 col-md-5 col-sm-5  form-group">
+      <div class="col-lg-3 col-md-3 col-sm-3 form-group">
         <label>Price</label>
         <div class="input-group">
           <input class="form-control" name="Price" #Price="ngModel" [(ngModel)]="productService.selectedProduct.Price" placeholder="Price"
@@ -34,11 +27,22 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-between">
       <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+        <label>Description</label>
+        <input class="form-control" name="Description" #Description="ngModel" [(ngModel)]="productService.selectedProduct.Description"
+          placeholder="Description" required>
+      </div>
+    </div>
+    <div class="row justify-content-between">
+      <div class="col-lg-5 col-md-5 col-sm-5 form-group">
         <label>Category</label>
         <input class="form-control" name="Category" #Category="ngModel" [(ngModel)]="productService.selectedProduct.Category" placeholder="Category Id"
           required>
+      </div>
+      <div class="col-lg-7 col-md-7 col-sm-7 form-group">
+        <label>Image Url</label>
+        <input class="form-control" name="Url" #Url="ngModel" [(ngModel)]="productService.selectedProduct.Url" placeholder="Url">
       </div>
     </div>
     <div class="row">
@@ -51,6 +55,5 @@
         </button>
       </div>
     </div>
-
   </form>
 </app-modal>

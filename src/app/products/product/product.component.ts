@@ -50,11 +50,12 @@ export class ProductComponent implements OnInit {
       Description: '',
       Count: 0,
       Price: 0,
-      Category: ''
+      Category: '',
+      Url: '',
     };
   }
 
   showProductModal() {
-    this.modalService.open('errorModal');
+    this.modalService.open('newProductModal');
   }
 }

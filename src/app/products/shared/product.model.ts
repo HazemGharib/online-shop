@@ -5,4 +5,5 @@ export class Product {
     Description: string;
     Name: string;
     Price: number;
+    Url: string;
 }

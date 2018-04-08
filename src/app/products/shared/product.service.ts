@@ -20,7 +20,8 @@ export class ProductService {
       Count: product.Count,
       Description: product.Description,
       Name: product.Name,
-      Price: product.Price
+      Price: product.Price,
+      Url: product.Url,
     });
   }
 
@@ -30,7 +31,8 @@ export class ProductService {
       Count: product.Count,
       Description: product.Description,
       Name: product.Name,
-      Price: product.Price
+      Price: product.Price,
+      Url: product.Url,
     });
   }
 
