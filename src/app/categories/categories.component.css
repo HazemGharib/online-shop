@@ -1,5 +1,13 @@
-h2.jumbotron, div.alert-primary, .btn {
+h2.jumbotron, div.alert-primary, .btn.btn-default {
     background-color: #00a57e;
     color: white;
     margin-bottom: 0.25rem;
+}
+
+.btn-danger i.fa{
+    font-size: x-large;
+}
+
+div.alert.alert-primary{
+    margin-bottom: 0.5rem;
 }

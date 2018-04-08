@@ -15,13 +15,13 @@ export class CategoryService {
     return this.categoryList;
   }
 
-  insertCategory(category: Category) {
+  insertCategory(category) {
     this.categoryList.push({
       Name: category.Name,
     });
   }
 
-  updateCategory(category: Category) {
+  updateCategory(category) {
     this.categoryList.update(category.$key, {
       Name: category.Name,
     });
