@@ -11,11 +11,30 @@
   </div>
   <div class="col-6">
     <div *ngFor="let cat of categories" class="alert alert-primary" role="alert">
-      {{cat}}
+      {{cat.Name}}
     </div>
   </div>
 </div>
 
 <app-modal modalId="newCategoryModal" modalTitle="Add Category" blocking=false closebtn=true>
-
+  <form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="categoryService.selectedCategory.$key">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+        <label>Name</label>
+        <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="categoryService.selectedCategory.Name" placeholder="Category Name"
+          required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+        <button class="btn btn-default" type="submit" [disabled]="!categoryForm.valid">
+          <i class="fa fa-floppy-o"></i>
+          Submit</button>
+        <button class="btn btn-default" type="button" (click)="resetForm(categoryForm)">
+          <i class="fa fa-repeat"></i>Reset
+        </button>
+      </div>
+    </div>
+  </form>
 </app-modal>

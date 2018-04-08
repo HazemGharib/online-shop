@@ -1,3 +1,4 @@
+import { CategoryService } from './categories/shared/category.service';
 import { ModalService } from './common/modal/modal.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -36,7 +37,7 @@ import { CategoriesComponent } from './categories/categories.component';
     AngularFireDatabaseModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ProductService, ModalService],
+  providers: [ProductService, CategoryService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

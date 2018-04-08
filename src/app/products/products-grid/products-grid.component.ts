@@ -16,7 +16,7 @@ export class ProductsGridComponent implements OnInit {
     private productService: ProductService) { }
 
   ngOnInit() {
-    this.firebase.list('Products').snapshotChanges().subscribe(prod => {
+    this.productService.getData().snapshotChanges().subscribe(prod => {
       this.products = [];
       prod.forEach(element => {
         const y = element.payload.toJSON();

@@ -17,7 +17,6 @@ export class ProductComponent implements OnInit {
     private modalService: ModalService) { }
 
   ngOnInit() {
-    this.productService.getData();
     this.clearSelectedProduct();
   }
 
