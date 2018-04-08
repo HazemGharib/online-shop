@@ -1,3 +1,4 @@
+import { Category } from './../../categories/shared/category.model';
 export class Product {
     $key: string;
     Category: string;

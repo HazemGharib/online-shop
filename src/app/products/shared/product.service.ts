@@ -1,3 +1,4 @@
+import { Category } from './../../categories/shared/category.model';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Product } from './product.model';
@@ -14,9 +15,9 @@ export class ProductService {
     return this.productList;
   }
 
-  insertProduct(product: Product) {
+  insertProduct(product) {
     this.productList.push({
-      Category: product.Category,
+      Category: product.Category.$key,
       Count: product.Count,
       Description: product.Description,
       Name: product.Name,
@@ -25,7 +26,7 @@ export class ProductService {
     });
   }
 
-  updateProduct(product: Product) {
+  updateProduct(product) {
     this.productList.update(product.$key, {
       Category: product.Category,
       Count: product.Count,

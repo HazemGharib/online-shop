@@ -1,3 +1,5 @@
+import { Category } from './../../categories/shared/category.model';
+import { CategoryService } from './../../categories/shared/category.service';
 import { ModalService } from './../../common/modal/modal.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shared/product.service';
@@ -11,13 +13,27 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductComponent implements OnInit {
 
+  categories: Category[];
+  selectedCategory;
+
   constructor(
     private productService: ProductService,
+    private categoryService: CategoryService,
     private tostr: ToastrService,
     private modalService: ModalService) { }
 
   ngOnInit() {
-    this.clearSelectedProduct();
+    this.categoryService.getData().snapshotChanges().subscribe(cat => {
+      this.categories = [];
+      cat.forEach(element => {
+        const y: Category = {
+          Name: ((element.payload.toJSON()) as Category).Name,
+          $key: element.payload.key
+        };
+        this.categories.push(y);
+      });
+      this.resetForm();
+    });
   }
 
   onSubmit(productForm: NgForm) {
@@ -29,6 +45,7 @@ export class ProductComponent implements OnInit {
     }
     this.resetForm(productForm);
     this.tostr.success('Submitted Succcessfully', 'Add Product');
+    this.modalService.close('newProductModal');
   }
 
   resetForm(productForm?: NgForm) {
@@ -49,12 +66,13 @@ export class ProductComponent implements OnInit {
       Description: '',
       Count: 0,
       Price: 0,
-      Category: '',
+      Category: this.selectedCategory,
       Url: '',
     };
   }
 
   showProductModal() {
+    this.selectedCategory = this.categories[0];
     this.modalService.open('newProductModal');
   }
 }
