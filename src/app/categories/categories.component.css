@@ -1,0 +1,5 @@
+h2.jumbotron, div.alert-primary, .btn {
+    background-color: #00a57e;
+    color: white;
+    margin-bottom: 0.25rem;
+}

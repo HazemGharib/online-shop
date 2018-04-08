@@ -15,6 +15,7 @@ import { ProductComponent } from './products/product/product.component';
 import { ProductsGridComponent } from './products/products-grid/products-grid.component';
 import { ProductService } from './products/shared/product.service';
 import { ModalComponent } from './common/modal/modal.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ModalComponent } from './common/modal/modal.component';
     ProductComponent,
     ProductsGridComponent,
     ModalComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserAnimationsModule,
