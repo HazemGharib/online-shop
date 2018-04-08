@@ -11,7 +11,9 @@ import { ProductService } from '../shared/product.service';
 export class ProductsGridComponent implements OnInit {
   products;
 
-  constructor(private firebase: AngularFireDatabase, private productService: ProductService) {  }
+  constructor(
+    private firebase: AngularFireDatabase,
+    private productService: ProductService) { }
 
   ngOnInit() {
     this.firebase.list('Products').snapshotChanges().subscribe(prod => {
@@ -23,4 +25,11 @@ export class ProductsGridComponent implements OnInit {
     });
   }
 
+  truncate(string) {
+    if (string.length > 16) {
+      return string.substring(0, 14) + '...';
+    } else {
+      return string;
+    }
+  }
 }
