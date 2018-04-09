@@ -1,3 +1,4 @@
+import { Product } from './../shared/product.model';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
@@ -18,9 +19,10 @@ export class ProductsGridComponent implements OnInit {
   ngOnInit() {
     this.productService.getData().snapshotChanges().subscribe(prod => {
       this.products = [];
-      prod.forEach(element => {
-        const y = element.payload.toJSON();
-        this.products.push(y);
+      prod.forEach(item => {
+        const y = item.payload.toJSON();
+        y['$key'] = item.key;
+        this.products.push(y as Product);
       });
     });
   }

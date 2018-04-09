@@ -1,3 +1,5 @@
+import { Category } from './shared/category.model';
+import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
@@ -24,8 +26,8 @@ export class CategoriesComponent implements OnInit {
     this.clearSelectedCategory();
     this.categoryService.getData().snapshotChanges().subscribe(cat => {
       this.categories = [];
-      cat.forEach(element => {
-        const y = element.payload.toJSON();
+      cat.forEach(item => {
+        const y = item.payload.toJSON();
         this.categories.push(y);
       });
     });
@@ -39,8 +41,10 @@ export class CategoriesComponent implements OnInit {
 
     if (categoryForm.value.$key == null) {
       this.categoryService.insertCategory(categoryForm.value);
+      this.tostr.success('Submitted Succcessfully', 'Add Category');
     } else {
       this.categoryService.updateCategory(categoryForm.value);
+      this.tostr.success('Submitted Succcessfully', 'Update Category');
     }
     this.resetForm(categoryForm);
     this.tostr.success('Submitted Succcessfully', 'Add Category');
@@ -62,5 +66,13 @@ export class CategoriesComponent implements OnInit {
       $key: null,
       Name: '',
     };
+  }
+
+  truncate(string, length) {
+    if (string.length > length) {
+      return string.substring(0, length - 2) + '...';
+    } else {
+      return string;
+    }
   }
 }

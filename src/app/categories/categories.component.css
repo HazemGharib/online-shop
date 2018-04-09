@@ -1,13 +1,26 @@
-h2.jumbotron, div.alert-primary, .btn.btn-default {
+h2.jumbotron, .btn.btn-default {
     background-color: #00a57e;
     color: white;
     margin-bottom: 0.25rem;
 }
 
-.btn-danger i.fa{
-    font-size: x-large;
+.btn.btn-default:hover{
+    background-color: #00857e;
 }
 
-div.alert.alert-primary{
-    margin-bottom: 0.5rem;
+div.alert-primary{
+    background-color: white;
+    color: #00a57e;
+    border: #00857e 2px solid;
+    margin-bottom: 1rem;
+    font-size: 25px;
+    font-family: verdana;
+}
+
+div.alert-primary:hover{
+    background-color: #dee9e8;
+}
+
+.btn-danger i.fa, .btn-default i.fa{
+    font-size: large;
 }
