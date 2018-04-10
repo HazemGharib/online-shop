@@ -1,0 +1,19 @@
+nav {
+  background-color: #00a57e;
+}
+
+body,
+a.navbar-brand {
+  color: white;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  font-weight: 700;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: rgb(255, 255, 255);
+  border: 1px solid;
+  border-radius: 15px;
+  font-weight: 800;
+}

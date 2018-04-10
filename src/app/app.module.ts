@@ -1,5 +1,5 @@
-import { CategoryService } from './categories/shared/category.service';
-import { ModalService } from './common/modal/modal.service';
+
+import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -14,9 +14,22 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductsGridComponent } from './products/products-grid/products-grid.component';
-import { ProductService } from './products/shared/product.service';
-import { ModalComponent } from './common/modal/modal.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { ModalComponent } from './common/modal/modal.component';
+
+import { ProductService } from './products/shared/product.service';
+import { CategoryService } from './categories/shared/category.service';
+import { ModalService } from './common/modal/modal.service';
+
+const appRoutes: Routes = [
+  { path: 'products', component: ProductsComponent },
+  { path: 'categories',      component: CategoriesComponent },
+  { path: '',
+    redirectTo: '/products',
+    pathMatch: 'full'
+  },
+  // { path: '**', component: PageNotFoundComponent }
+];
 
 
 @NgModule({
@@ -29,6 +42,7 @@ import { CategoriesComponent } from './categories/categories.component';
     CategoriesComponent,
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     CommonModule,
     BrowserModule,

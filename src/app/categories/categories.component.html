@@ -13,7 +13,7 @@
     <div *ngFor="let cat of categories" class="alert alert-primary" role="alert">
       <div class="row">
         <div class="col-6">
-          {{cat.Name > 15 ? truncate(cat.Name,15) : cat.Name}}
+          {{cat.Name}}
         </div>
         <div class="col-3">
           <div class="btn btn-danger">
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="col-3">
-          <div class="btn btn-default" (click)="onEdit(cat)">
+          <div class="btn btn-default">
             Update <i class="fa fa-pencil-square-o"></i>
           </div>
         </div>
