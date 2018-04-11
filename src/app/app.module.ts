@@ -23,8 +23,19 @@ import { ModalService } from './common/modal/modal.service';
 
 const appRoutes: Routes = [
   { path: 'products', component: ProductsComponent },
-  { path: 'categories',      component: CategoriesComponent },
-  { path: '',
+  { path: 'categories', component: CategoriesComponent },
+  {
+    path: 'products',
+    redirectTo: '/products',
+    pathMatch: 'full'
+  },
+  {
+    path: 'categories',
+    redirectTo: '/categories',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     redirectTo: '/products',
     pathMatch: 'full'
   },
