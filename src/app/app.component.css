@@ -13,7 +13,15 @@ a.navbar-brand {
 
 .navbar-light .navbar-nav .nav-link.active {
   color: rgb(255, 255, 255);
-  border: 1px solid;
-  border-radius: 15px;
   font-weight: 800;
+}
+
+.navbar-toggler-icon{
+  color:  white;
+  padding-top:  5px;
+  background-image: url();
+}
+
+button.navbar-toggler{
+  border-color: #ffffff;
 }
